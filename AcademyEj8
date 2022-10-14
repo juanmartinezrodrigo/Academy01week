@@ -1,0 +1,28 @@
+void main() {
+  obtenerDatos().then((data) {      //llama a obtenerDatos, una vez se resuelve saca los datos por pantalla
+    print('$data , ${data.name} ,${data.age} ,${data.powers} , ${data.secretId}');
+  });
+}
+
+Future<Hero> obtenerDatos() async {             //una función async que devuelve un future con la respuesta de la supuesta api
+  Hero hero = Hero('paco', 33, 'paco', ['rayos', 'volar']);
+  
+
+  return await Future.delayed(Duration(seconds: 4), () {      
+    return hero;
+  });
+}
+
+class Hero {          //modelo hero
+  String? name;
+  int? age;
+  String? secretId;
+  List<String>? powers;
+  
+  Hero(String? name, int? age, String? secretId, List<String>? powers) {
+    this.name = name;
+    this.age = age;
+    this.secretId = secretId;
+    this.powers = powers;
+  }
+}

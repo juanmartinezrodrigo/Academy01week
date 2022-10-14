@@ -1,0 +1,36 @@
+void main() {
+
+  String frase;
+  String capLine = "";
+  List splitted;
+  int cantidadPalabras;
+  bool caps;
+
+  frase = 'hola mundo uno';
+    caps = false;
+    frase = frase.trim();
+
+  if (frase.length > 3) {     //la frase debe tener al menos 4 letras
+
+    splitted = frase.split(" ");    //separa las palabras para el ejercicio
+
+    for (var e in splitted){
+      capLine = capLine + " ";      //añade espacios entre palabras de vuelta
+
+      if(!caps) {     //cambia entre mayúsculas y minúsculas cada palabra
+
+        caps = true;
+        capLine = capLine + e.toUpperCase();
+
+      } else {
+        caps = false;
+        capLine = capLine + e;
+      }
+    }
+    
+
+      
+    }
+    capLine = capLine.trim();
+    print(capLine);     //saca el resultado por consola
+  }

@@ -1,0 +1,30 @@
+void main() {
+  String palabra = 'ornitorrinco';
+  palabra = palabra.trim();
+  String primerasDos = "";
+  String ultimasDos = "";
+  
+  
+  if (palabra.length < 6) {           //la palabra debe tener más de 6 letras
+    print('la palabra tiene menos de 6 letras');
+  } else {
+     List palabraSplit = palabra.split("");
+
+    for (String e in palabraSplit) {
+      
+      if (e == ' ') {       //comprueba que es una sola palabra
+        print('hay más de una palabra');
+        break;
+      } else {
+        
+        primerasDos = palabraSplit.elementAt(0) + palabraSplit.elementAt(1);  //junta las 2 primeras letras en un string
+        
+        int i = palabraSplit.length;
+        ultimasDos = palabraSplit.elementAt(i-2) + palabraSplit.elementAt(i-1);   //junta las 2 últimas letras en un string
+      }
+    }
+    try {
+    print(primerasDos + ultimasDos);      //muestra por consola juntas las 4 letras
+    }catch (ex){print('error: ' + ex.toString());}
+  }
+}

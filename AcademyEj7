@@ -1,0 +1,33 @@
+void main() {
+  
+  Hero hero1 = Hero('Molecule Man', null, null, ['Radiation resistance', 'Turning tiny']);
+  Hero hero2 = Hero(null, 39, 'jane wilson', null);
+  
+  print('el heroe 1 es ${hero1.name}, de ${hero1.age} años, su verdadera identidad es ${hero1.secretId} y sus poderes son ${hero1.powers}.');
+  print('el heroe 2 es ${hero2.name}, de ${hero2.age} años, su verdadera identidad es ${hero2.secretId} y sus poderes son ${hero2.powers}.');
+  
+}
+
+class Hero {                    //modelo hero
+  
+  String? name;
+  int? age;
+  String? secretId;
+  List<String>? powers;
+  
+
+  Hero.fromJson( Map<String, dynamic> json):            //constructor para json
+    this.name = json['name'] ?? 'nombre desconocido',
+    this.age = json['age'] ?? 'edad desconocida',
+    this.secretId = json ['secretIdentity'] ?? 'identidad desconocida',
+    this.powers = json['powers'] ?? 'poderes desconocidos';
+  
+  Hero(String? name, int? age, String? secretId, List<String>? powers){   //constructor
+    
+    this.name = name ?? 'nombre desconocido';
+    this.age = age;
+    this.secretId = secretId ?? 'identidad desconocida';
+    this.powers = powers ?? ['poderes desconocidos'];
+  }                              //los constructores tienen valores por defecto en caso de encontrar valores vacíos
+  
+}

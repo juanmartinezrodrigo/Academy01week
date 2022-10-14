@@ -1,0 +1,11 @@
+void main (){
+  String password = 'c0n7rA5Eña%53Gura';
+  
+  RegExp passwordSpecial = RegExp(r'[!-/]');    
+  RegExp passwordUppercase = RegExp(r'[A-Z]');  
+  bool uppercaseCheck = passwordUppercase.hasMatch(password); //busca mayúsculas
+  bool specialCheck = passwordSpecial.hasMatch(password);   //busca carácteres especiales
+  if (password.length > 5 && uppercaseCheck && specialCheck){   //y la longitud de la contraseña
+    print('la contraseña $password es valida');
+  }
+}

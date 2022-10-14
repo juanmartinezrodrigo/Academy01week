@@ -1,0 +1,21 @@
+void main() {
+    String email = 'TuMorenito17@gmail.com ';
+    email = email.trim().toLowerCase();
+  
+    bool atCheck = email.contains('@');     //confirma que el correo tiene @
+    bool dotcomCheck = email.contains('.com');    //confirma que el correo contiene ".com"
+  
+    if (atCheck && dotcomCheck) {
+      greeter(email);
+    }else {
+        print('correo invalido');     //avisa si el correo es invalido
+      }
+  }
+  
+  void greeter(String email){             //saluda al usuario si el correo es válido
+        List splitUser = email.split('@');
+        List splitDom = splitUser.elementAt(1).split('.');
+        print('correo valido');
+        print('hola ${splitUser.elementAt(0)} de ${splitDom.elementAt(0)}');
+  }
+  

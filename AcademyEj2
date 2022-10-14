@@ -1,0 +1,40 @@
+void main() {
+  String frase = 
+    'Todos los asuntos tienen dos asas: por una son manejables, por la otra no. -Epicteto';
+  List palabras;
+  List caracteres;
+  String invertida = "";
+  
+  
+  palabras = frase.split(" ");
+  int cantidadPalabras = palabras.length;             //cuenta las palabras
+  print('La frase tiene $cantidadPalabras palabras');
+  
+  
+  
+  caracteres = frase.split("");
+  int cantidadCaracteres = caracteres.length;     //cuenta los caracteres totales
+  
+  int i = caracteres.length;
+  int n = 0;
+  
+  
+  
+  for (var e in caracteres){
+    
+    if (e == " "){              //cuenta los espacios
+      n++;
+    };
+
+    invertida = invertida + caracteres.elementAt(i-1);      //aprovecha el for() para colocar las letras desde el final
+    i--;
+  }
+  
+  
+  
+  cantidadCaracteres = cantidadCaracteres - n;      //resta caracteres totales y espacios
+    print('La frase tiene $cantidadCaracteres letras');
+    print('La frase tiene $n espacios');
+    print(invertida);
+  
+}

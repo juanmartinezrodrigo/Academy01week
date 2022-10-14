@@ -1,0 +1,72 @@
+void main() {
+  String phrase =
+      'Caminante no hay camino, se hace el camino al andar,\n Al andar se hace camino y al volver la vista atrás se ve la senda que nunca se ha de volver a pisar.';
+  List lines = phrase.split("\n");    //separar las dos lineas
+
+  String firstLine = lines.elementAt(0);
+
+  List phrases = firstLine.split(',');    //separa las dos frases de la primera linea
+
+  String phraseTwo = phrases.elementAt(1);
+
+  String sfModified = mimimi(phraseTwo, 'i');
+
+  String end =
+      phrases.elementAt(0) + ', ' + sfModified + ', \n' + lines.elementAt(1); //concatenar las 2 cadenas
+  print(end);
+
+  int first = -1;
+  int last = -1;
+  bool prim = false;
+  int i = 0;
+  List splitFin = end.split("");
+  for (String char in splitFin) {       
+    i++;
+    if (!prim) {
+      if (char == 'i') {
+        first = i;          //guarda la primera posición de i
+        prim=true;
+      }
+    }
+      if (char == 'i'){
+        last = i;           //guarda cada posición de i, sobreescribiendo la anterior
+      }
+    
+  }
+
+  print('la primera posición de i es $first. La última posición de i es $last');
+}
+
+
+
+
+String mimimi(String f, String v) {     //método al que pasar frase y vocal
+  String modified = "";
+  List cha = f.split("");
+  int i = 0;
+
+  for (String elem in cha) {
+    switch (elem) {       //cambia cualquier vocal por la vocal elegida
+      case 'a':
+        cha[i] = v;
+        break;
+      case 'e':
+        cha[i] = v;
+        break;
+      case 'i':
+        cha[i] = v;
+        break;
+      case 'o':
+        cha[i] = v;
+        break;
+      case 'u':
+        cha[i] = v;
+        break;
+      default:
+    }
+    modified = modified + cha.elementAt(i);
+    i++;
+  }
+
+  return modified;
+}
